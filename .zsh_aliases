@@ -2,7 +2,7 @@
 alias zsh_aliases="vim ~/zsh_aliases/.zsh_aliases"
 
 # Edit ZSH files
-alias zsh_config="subl ~/.zshrc"
+alias zsh_config="vim ~/.zshrc"
 
 # System command overrides
 alias diff="colordiff"
@@ -10,12 +10,8 @@ alias df="df -H"
 alias du="du -ch"
 
 # Apple aliases
-alias showhidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder"
-alias hidehidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder"
-
-# Server aliases
-alias fd-pphu="ssh deploy@10.14.21.11"
-alias fd-hu="ssh deploy@10.14.22.11"
+alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder"
+alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder"
 
 # Useful tools
 alias myip="wget http://nwdesign.us/myip.php -O - -q ; echo"
@@ -27,10 +23,6 @@ alias rebase="git fetch upstream; git rebase -i upstream/master"
 alias commit="git add .; git commit -am"
 alias merge="git merge develop"
 alias status="git status"
-
-# FD
-alias fd-mob="cd ~/workspace/fd-mobile"
-alias fd-web="cd ~/workspace/fd-web"
 
 # Navigation
 alias s="cd ../"
