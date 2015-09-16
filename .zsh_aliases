@@ -14,14 +14,19 @@ alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && kill
 alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder"
 
 # Useful tools
-alias myip="wget http://nwdesign.us/myip.php -O - -q ; echo"
+alias ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
+
+# update everything
+alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update"
 
 # Git
+alias pull="git pull origin"
+alias override="git fetch origin; git reset --hard origin/"
 alias push="git push -f origin"
 alias go="git checkout"
 alias rebase="git fetch upstream; git rebase -i upstream/master"
 alias commit="git add .; git commit -am"
-alias merge="git merge develop"
+alias merge="git merge"
 alias status="git status"
 
 # Navigation
