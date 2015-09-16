@@ -30,4 +30,5 @@ alias merge="git merge"
 alias status="git status"
 
 # Navigation
-alias s="cd ../"
+alias ..="cd .."
+alias ...="cd ../.."
