@@ -37,3 +37,8 @@ alias ...="cd ../.."
 
 # Laravel
 alias artisan="php artisan"
+
+# Homestead
+alias vm_ssh="ssh vagrant@127.0.0.1 -p 2222"
+alias vm_up="~/Homestead; vagrant up;"
+alias vm_down="~/Homestead; vagrant halt"
