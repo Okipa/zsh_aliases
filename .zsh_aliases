@@ -40,5 +40,6 @@ alias artisan="php artisan"
 
 # Homestead
 alias vm_ssh="ssh vagrant@127.0.0.1 -p 2222"
-alias vm_up="~/Homestead; vagrant up;"
-alias vm_down="~/Homestead; vagrant halt"
+alias vm_up="cd ~/Homestead; vagrant up; cd ~/"
+alias vm_halt="cd ~/Homestead; vagrant halt; cd ~/"
+alias vm_provision="cd~/Homestead; vagrant povision; cd ~/"
