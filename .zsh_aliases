@@ -39,7 +39,4 @@ alias ...="cd ../.."
 alias artisan="php artisan"
 
 # Homestead
-alias vm_ssh="ssh vagrant@127.0.0.1 -p 2222"
-alias vm_up="cd ~/Homestead; vagrant up; cd ~/"
-alias vm_halt="cd ~/Homestead; vagrant halt; cd ~/"
-alias vm_provision="cd~/Homestead; vagrant povision; cd ~/"
+alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
