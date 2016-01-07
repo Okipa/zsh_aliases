@@ -39,4 +39,4 @@ alias ...="cd ../.."
 alias artisan="php artisan"
 
 # Homestead
-alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
+alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead '
