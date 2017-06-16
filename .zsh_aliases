@@ -17,7 +17,7 @@ alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killa
 alias ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 
 # update everything
-alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update"
+alias update="softwareupdate -i -a; brew update; brew upgrade; brew cleanup;"
 
 # Git
 alias pull="git pull origin"
