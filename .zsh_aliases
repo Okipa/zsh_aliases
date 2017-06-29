@@ -1,25 +1,25 @@
-#Quick edit aliases file
+# quick edit aliases file
 alias zsh_aliases="vim ~/zsh_aliases/.zsh_aliases"
 
-# Edit ZSH files
+# edit ZSH files
 alias zsh_config="vim ~/.zshrc"
 
-# System command overrides
+# system command overrides
 alias diff="colordiff"
 alias df="df -H"
 alias du="du -ch"
 
-# Apple aliases
+# apple aliases
 alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder"
 alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder"
 
-# Useful tools
+# useful tools
 alias ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 
 # update everything
-alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update"
+alias update="softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew prune; brew doctor;"
 
-# Git
+# git
 alias pull="git pull origin"
 alias override="git fetch --all; git reset --hard origin"
 alias push="git push origin"
@@ -32,7 +32,7 @@ alias commit="git add .; git commit -am"
 alias merge="git merge"
 alias status="git status -sb"
 
-# Navigation
+# navigation
 alias home="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
