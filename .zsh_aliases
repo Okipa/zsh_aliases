@@ -2,7 +2,7 @@
 alias zsh_aliases="vim ~/zsh_aliases/.zsh_aliases"
 
 # edit ZSH files
-alias zsh_config="vim ~/.zshrc"
+alias zshrc="vim ~/.zshrc"
 
 # system command overrides
 alias diff="colordiff"
