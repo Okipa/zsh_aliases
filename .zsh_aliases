@@ -21,11 +21,13 @@ alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup
 
 # Git
 alias pull="git pull origin"
-alias override="git fetch origin; git reset --hard origin"
+alias override="git fetch --all; git reset --hard origin"
 alias push="git push origin"
-alias push-force="git push -f origin"
+alias push-f="git push --force-with-lease origin"
 alias go="git checkout"
-alias rebase="git fetch upstream; git rebase -i upstream/master"
+alias fetch="git fetch --all"
+alias rebase-master="git fetch upstream master; git rebase -i upstream/master"
+alias rebase-develop="git fetch upstream develop; git rebase -i upstream/develop"
 alias commit="git add .; git commit -am"
 alias merge="git merge"
 alias status="git status -sb"
@@ -40,3 +42,4 @@ alias artisan="php artisan"
 
 # Homestead
 alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead '
+alias ng5='function __ng5() { (cd ~/php5 && vagrant $*); unset -f __ng5; }; __ng5 '
