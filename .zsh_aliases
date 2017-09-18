@@ -39,14 +39,9 @@ alias status="git status -sb"
 alias composer="./composer.phar"
 alias deployer="./deployer.phar"
 alias bower="node_modules/bower/bin/bower"
-
 rebase() {
 	git fetch upstream $1;
 	git rebase -i upstream/$1;
-	composer update;
-	bower update;
-	yarn;
-	artisan migrate;
 }
 
 # navigation
