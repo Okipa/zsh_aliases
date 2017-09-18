@@ -31,6 +31,7 @@ alias pull="git pull origin"
 alias override="git fetch --all; git reset --hard origin"
 alias push="git push origin"
 alias push-f="git push --force-with-lease origin"
+alias push-force=push-f
 alias go="git checkout"
 alias fetch="git fetch --all"
 alias commit="git add .; git commit -am"
@@ -39,10 +40,9 @@ alias status="git status -sb"
 alias composer="./composer.phar"
 alias deployer="./deployer.phar"
 alias bower="node_modules/bower/bin/bower"
-rebase() {
-	git fetch upstream $1;
-	git rebase -i upstream/$1;
-}
+alias rebase-dev="git fetch upstream develop; git rebase -i upstream/develop"
+alias rebase-develop=rebase-dev
+alias rebase-master="git fetch upstream master; git rebase -i upstream/master"
 
 # navigation
 alias home="cd ~"
