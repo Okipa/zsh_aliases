@@ -8,6 +8,10 @@ alias zshrc="vim ~/.zshrc"
 alias diff="colordiff"
 alias df="df -H"
 alias du="du -ch"
+DEPLOY_CONFIG_PATH='~/deploy-config/config'
+if [ -f ${DEPLOY_CONFIG_PATH} ]; then
+	alias ssh="ssh -F '$DEPLOY_CONFIG_PATH'"
+fi
 
 # apple aliases
 alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder"
@@ -19,6 +23,9 @@ alias ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 # update everything
 alias update="softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew prune; brew doctor;"
 
+# Laravel
+alias artisan="php artisan"
+
 # git
 alias pull="git pull origin"
 alias override="git fetch --all; git reset --hard origin"
@@ -26,19 +33,26 @@ alias push="git push origin"
 alias push-f="git push --force-with-lease origin"
 alias go="git checkout"
 alias fetch="git fetch --all"
-alias rebase-master="git fetch upstream master; git rebase -i upstream/master"
-alias rebase-develop="git fetch upstream develop; git rebase -i upstream/develop"
 alias commit="git add .; git commit -am"
 alias merge="git merge"
 alias status="git status -sb"
+alias composer="./composer.phar"
+alias deployer="./deployer.phar"
+alias bower="node_modules/bower/bin/bower"
+
+rebase() {
+	git fetch upstream $1;
+	git rebase -i upstream/$1;
+	composer update;
+	bower update;
+	yarn;
+	artisan migrate;
+}
 
 # navigation
 alias home="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
-
-# Laravel
-alias artisan="php artisan"
 
 # Homestead
 alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead '
