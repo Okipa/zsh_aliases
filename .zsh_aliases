@@ -1,7 +1,7 @@
-# quick edit aliases file
+# quick edit zsh aliases
 alias zsh_aliases="vim ~/zsh_aliases/.zsh_aliases"
 
-# edit ZSH files
+# quick edit zshrc
 alias zshrc="vim ~/.zshrc"
 
 # system command overrides
@@ -21,28 +21,24 @@ alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killa
 alias ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 
 # update everything
-alias update="softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew prune; brew doctor;"
+alias update="softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew cask cleanup; brew cask outdated | xargs brew cask reinstall; brew prune; brew doctor;"
 
 # Laravel
 alias artisan="php artisan"
 
 # git
-alias pull="git pull origin"
-alias override="git fetch --all; git reset --hard origin"
-alias push="git push origin"
-alias push-f="git push --force-with-lease origin"
-alias push-force=push-f
+alias pull="git pull"
+alias push="git push"
+alias force="git push --force-with-lease"
 alias go="git checkout"
 alias fetch="git fetch --all"
 alias commit="git add .; git commit -am"
 alias merge="git merge"
 alias status="git status -sb"
 alias composer="./composer.phar"
-alias deployer="./deployer.phar"
+alias dep="./deployer.phar"
 alias bower="node_modules/bower/bin/bower"
-alias rebase-dev="git fetch upstream develop; git rebase -i upstream/develop"
-alias rebase-develop=rebase-dev
-alias rebase-master="git fetch upstream master; git rebase -i upstream/master"
+alias rebase="git fetch --all; git rebase -i"
 
 # navigation
 alias home="cd ~"
@@ -51,4 +47,3 @@ alias ...="cd ../.."
 
 # Homestead
 alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead '
-alias ng5='function __ng5() { (cd ~/php5 && vagrant $*); unset -f __ng5; }; __ng5 '
