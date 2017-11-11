@@ -33,7 +33,6 @@ alias force="git push --force-with-lease"
 alias go="git checkout"
 alias fetch="git fetch --all"
 alias commit="git add .; git commit -am"
-<<<<<<< HEAD
 alias merge="fetch; git merge --no-ff"
 alias status="git status -sb"
 alias composer="./composer.phar"
