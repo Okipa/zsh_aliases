@@ -18,7 +18,8 @@ alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && kill
 alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder"
 
 # useful tools
-alias ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
+alias my_local_ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
+alias my_public_ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # update everything
 alias update="softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew cask cleanup; brew cask outdated | xargs brew cask reinstall; brew prune; brew doctor;"
