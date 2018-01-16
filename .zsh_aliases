@@ -14,15 +14,15 @@ if [ -f ${DEPLOY_CONFIG_PATH} ]; then
 fi
 
 # apple aliases
-alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder"
-alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder"
+alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder; say hidden files shown"
+alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder; say hidden files hidden"
 
 # useful tools
 alias my_local_ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 alias my_public_ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # update everything
-alias update="softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew cask cleanup; brew cask outdated | xargs brew cask reinstall; brew prune; brew doctor;"
+alias update="softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew cask cleanup; brew cask outdated | xargs brew cask reinstall; brew prune; brew doctor; say machine updated"
 
 # Laravel
 alias artisan="php artisan"
@@ -43,10 +43,13 @@ alias rebase="git fetch --all; git rebase -i"
 alias reset="git reset --hard"
 alias cherry-pick="git cherry-pick"
 
+# dns
+alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache flushed'
+
 # navigation
 alias home="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
 
 # Homestead
-alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead '
+alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead; say homestead started'
