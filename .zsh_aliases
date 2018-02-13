@@ -43,6 +43,9 @@ alias rebase="git fetch --all; git rebase -i"
 alias reset="git reset --hard"
 alias cherry-pick="git cherry-pick"
 
+# sed
+sed=gsed
+
 # navigation
 alias home="cd ~"
 alias ..="cd .."
