@@ -43,6 +43,9 @@ alias rebase="git fetch --all; git rebase -i"
 alias reset="git reset --hard"
 alias cherry-pick="git cherry-pick"
 
+# sed
+alias sed=gsed
+
 # dns
 alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache flushed'
 
