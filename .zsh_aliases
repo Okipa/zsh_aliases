@@ -28,6 +28,7 @@ alias update="softwareupdate -i -a; brew update; brew upgrade; brew cleanup; bre
 alias artisan="php artisan"
 
 # git
+alias remote="git remote"
 alias pull="git pull"
 alias push="git push"
 alias force="git push --force-with-lease"
@@ -42,9 +43,7 @@ alias bower="node_modules/bower/bin/bower"
 alias rebase="git fetch --all; git rebase -i"
 alias reset="git reset --hard"
 alias cherry-pick="git cherry-pick"
-
-# sed
-alias sed=gsed
+alias diff="git diff"
 
 # dns
 alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache flushed'
