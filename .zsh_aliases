@@ -55,4 +55,4 @@ alias ..="cd .."
 alias ...="cd ../.."
 
 # Homestead
-alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead; say homestead started'
+alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
