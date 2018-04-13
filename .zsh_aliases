@@ -22,7 +22,7 @@ alias my_local_ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 alias my_public_ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # update everything
-alias update="softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew cask cleanup; brew cask outdated | xargs brew cask reinstall; brew prune; brew doctor; say machine updated"
+alias update="composer self-update; softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew cask cleanup; brew cask outdated | xargs brew cask reinstall; brew prune; brew doctor; say machine updated"
 
 # Laravel
 alias artisan="php artisan"
