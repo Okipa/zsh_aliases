@@ -5,7 +5,7 @@ alias zsh_aliases="vim ~/zsh_aliases/.zsh_aliases"
 alias zshrc="vim ~/.zshrc"
 
 # system command overrides
-alias diff="colordiff"
+alias fdiff="colordiff"
 alias df="df -H"
 alias du="du -ch"
 DEPLOY_CONFIG_PATH='~/deploy-config/config'
@@ -22,7 +22,7 @@ alias my_local_ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 alias my_public_ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # update everything
-alias update="composer self-update; softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew cask cleanup; brew cask outdated | xargs brew cask reinstall; brew prune; brew doctor; say machine updated"
+alias update="composer self-update; composer clearcache; softwareupdate -i -a --restart; brew update; brew upgrade; brew cask outdated | cut -f 1 | xargs brew cask reinstall; brew doctor; brew missing; brew cleanup; brew prune; say machine mise à jour"
 
 # Laravel
 alias artisan="php artisan"
@@ -38,8 +38,6 @@ alias commit="git add .; git commit -am"
 alias amend="git add .; git commit --amend"
 alias merge="git merge"
 alias status="git status -sb"
-alias dep="./deployer.phar"
-alias bower="node_modules/bower/bin/bower"
 alias rebase="git fetch --all; git rebase -i"
 alias reset="git reset --hard"
 alias cherry-pick="git cherry-pick"
