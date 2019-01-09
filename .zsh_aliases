@@ -5,13 +5,8 @@ alias zsh_aliases="vim ~/zsh_aliases/.zsh_aliases"
 alias zshrc="vim ~/.zshrc"
 
 # system command overrides
-alias fdiff="colordiff"
 alias df="df -H"
 alias du="du -ch"
-DEPLOY_CONFIG_PATH='~/deploy-config/config'
-if [ -f ${DEPLOY_CONFIG_PATH} ]; then
-	alias ssh="ssh -F '$DEPLOY_CONFIG_PATH'"
-fi
 
 # apple aliases
 alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder; say hidden files shown"
