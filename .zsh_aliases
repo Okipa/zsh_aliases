@@ -16,8 +16,8 @@ alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killa
 alias my_local_ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 alias my_public_ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-# update everything
-alias update="yarn global upgrade; composer self-update; composer clearcache; softwareupdate -i -a --restart; brew update; brew upgrade; brew cask outdated | cut -f 1 | xargs brew cask reinstall; brew doctor; brew missing; brew cleanup; say machine mise à jour"
+# startup script (update everything and start services)
+alias startup="yarn global upgrade; composer self-update; composer clearcache; sudo softwareupdate -i -a --restart; brew update; brew upgrade; brew cask outdated | cut -f 1 | xargs brew cask reinstall; brew doctor; brew missing; brew cleanup; say machine mise à jour; dinghy up;"
 
 # Laravel
 alias artisan="php artisan"
