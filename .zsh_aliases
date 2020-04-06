@@ -46,5 +46,3 @@ alias home="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
 
-# composer
-alias composer="php -d memory_limit=-1 $(which composer)"
