@@ -39,12 +39,12 @@ alias cherry-pick="git cherry-pick"
 alias diff="git diff"
 
 # dns
-alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache flushed'
+alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache mis à la poubelle'
 
 # navigation
 alias home="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
 
-# Homestead
-alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
+# composer
+alias composer="php -d memory_limit=-1 $(which composer)"
