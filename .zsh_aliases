@@ -1,28 +1,26 @@
-# quick edit zsh aliases
+# Config
 alias zsh_aliases="vim ~/zsh_aliases/.zsh_aliases"
-
-# quick edit zshrc
 alias zshrc="vim ~/.zshrc"
 
-# system command overrides
+# System command overrides
 alias df="df -H"
 alias du="du -ch"
 
-# apple aliases
+# Apple aliases
 alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder; say hidden files shown"
 alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder; say hidden files hidden"
 
-# useful tools
+# Useful tools
 alias my_local_ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 alias my_public_ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-# startup script (update everything and start services)
+# Update script (update everything)
 alias update="sudo softwareupdate -i -a --restart; mas outdated, mas upgrade; yarn global upgrade; composer self-update; composer clearcache; git -C "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask" fetch --unshallow; brew update; brew upgrade; brew outdated --cask | cut -f 1 | xargs brew cask reinstall; brew doctor; brew missing; brew cleanup; say machine mise à jour;"
 
 # Laravel
-alias artisan="php artisan"
+alias sail='bash vendor/bin/sail'
 
-# git
+# Git
 alias remote="git remote"
 alias pull="git pull"
 alias push="git push"
@@ -39,10 +37,10 @@ alias cherry-pick="git cherry-pick"
 alias diff="git diff"
 alias cleanMerged="git fetch --all; git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
 
-# dns
+# DNS
 alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache mis à la poubelle'
 
-# navigation
+# Navigation
 alias home="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
