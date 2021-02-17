@@ -15,7 +15,7 @@ alias my_local_ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 alias my_public_ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Update script (update everything)
-alias update="sudo softwareupdate -i -a --restart; mas outdated, mas upgrade; yarn global upgrade; composer self-update; composer clearcache; brew update; brew upgrade; brew outdated --cask | cut -f 1 | xargs brew cask reinstall; brew doctor; brew missing; brew cleanup; say machine mise à jour;"
+alias update="sudo softwareupdate -i -a --restart; mas outdated; mas upgrade; yarn global upgrade; composer self-update; composer clearcache; brew update; brew upgrade; brew outdated --cask | cut -f 1 | xargs brew cask reinstall; brew doctor; brew missing; brew cleanup; say machine mise à jour;"
 
 # Laravel
 alias sail='bash vendor/bin/sail'
