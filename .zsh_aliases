@@ -38,7 +38,7 @@ alias diff="git diff"
 alias cleanMerged="git fetch --all; git branch --merged | egrep -v '(^\*|master|main|dev)' | xargs git branch -d; git remote prune origin;"
 
 # Docker
-alias dockerStopAll="docker kill $(docker ps -q);"
+alias dockerStopAll="docker stop $(docker ps -a -q);"
 
 
 # DNS
