@@ -22,24 +22,25 @@ alias sail='bash vendor/bin/sail'
 
 # Git
 alias remote="git remote"
-alias pull="git pull"
-alias push="git push"
-alias force="git push --force-with-lease"
+alias pull="git pull origin"
+alias push="git push origin"
+alias push-force="git push --force-with-lease"
 alias go="git checkout"
+alias create="git checkout -b"
 alias fetch="git fetch --all"
 alias commit="git add .; git commit -am"
 alias amend="git add .; git commit --amend"
-alias merge="git merge"
 alias status="git status -sb"
-alias rebase="git fetch --all; git rebase -i"
 alias reset="git reset --hard"
-alias cherry-pick="git cherry-pick"
-alias diff="git diff"
-alias cleanMerged="git fetch --all; git branch --merged | egrep -v '(^\*|master|main|dev)' | xargs git branch -d; git remote prune origin;"
+alias clearAllBranchesExceptDevelop="git branch | grep -v \"develop\" | xargs git branch -D;"
 
 # Docker
-dstop() { docker stop $(docker ps -a -q); }
-
+dockerStopAllContainers() { docker stop $(docker ps -a -q); }
+dockerRemoveAllContainers() { docker rm $(docker ps -qa); }
+dockerRemoveAllImages() { docker rmi -f $(docker images -qa); }
+dockerRemoveAllVolumes() { docker volume rm $(docker volume ls -qf); }
+dockerRemoveAllNetworks() { docker network rm $(docker network ls -q); }
+dockerClearEverything() { dockerStopAllContainers(); dockerRemoveAllContainers(); dockerRemoveAllImages(); dockerRemoveAllVolumes(); dockerRemoveAllNetworks(); docker ps -a; docker images -a; docker volume ls; docker network ls; }
 
 # DNS
 alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache mis à la poubelle'
