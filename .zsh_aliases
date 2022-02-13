@@ -22,8 +22,8 @@ alias sail='bash vendor/bin/sail'
 
 # Git
 alias remote="git remote"
-alias pull="git pull origin"
-alias push="git push origin"
+alias pull="git pull"
+alias push="git push"
 alias push-force="git push --force-with-lease"
 alias go="git checkout"
 alias create="git checkout -b"
