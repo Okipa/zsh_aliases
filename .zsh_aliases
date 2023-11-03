@@ -13,9 +13,10 @@ alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killa
 # Useful tools
 alias my_local_ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
 alias my_public_ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias speedtest="networkQuality -v"
 
 # Update script (update everything)
-alias update="softwareupdate --all --install --force; mas outdated; mas upgrade; yarn global upgrade; composer self-update; composer clearcache; brew update; brew upgrade; brew outdated --cask | cut -f 1 | xargs brew reinstall; brew doctor; brew missing; brew cleanup; say machine mise à jour;"
+alias update="softwareupdate -ia; mas outdated; mas upgrade; brew update; brew upgrade; brew outdated --cask | cut -f 1 | xargs brew reinstall; brew cleanup; brew doctor; say machine mise à jour;"
 
 # Laravel
 alias sail='bash vendor/bin/sail'
@@ -39,7 +40,7 @@ alias clearAllBranchesExceptDevelop="git branch | grep -v \"develop\" | xargs gi
 dockerStopAllContainers() { docker stop $(docker ps -a -q); }
 dockerRemoveAllContainers() { docker rm $(docker ps -qa); }
 dockerRemoveAllImages() { docker rmi -f $(docker images -qa); }
-dockerRemoveAllVolumes() { docker volume rm $(docker volume ls -qf); }
+dockerRemoveAllVolumes() { docker volume rm $(docker volume ls -q); }
 dockerRemoveAllNetworks() { docker network rm $(docker network ls -q); }
 dockerClearEverything() { dockerStopAllContainers(); dockerRemoveAllContainers(); dockerRemoveAllImages(); dockerRemoveAllVolumes(); dockerRemoveAllNetworks(); docker ps -a; docker images -a; docker volume ls; docker network ls; }
 
