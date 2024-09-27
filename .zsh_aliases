@@ -7,8 +7,8 @@ alias df="df -H"
 alias du="du -ch"
 
 # Apple aliases
-alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder; say hidden files shown"
-alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder; say hidden files hidden"
+alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder;"
+alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder;"
 
 # Useful tools
 alias my_local_ip="wget http://nwdesign.us/myip.php -O - -q ; echo"
@@ -16,7 +16,7 @@ alias my_public_ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias speedtest="networkQuality -v"
 
 # Update script (update everything)
-alias update="softwareupdate -ia; mas outdated; mas upgrade; brew update; brew upgrade; brew outdated --cask | cut -f 1 | xargs brew reinstall; brew cleanup; brew doctor; say machine mise à jour;"
+alias update="omz update; mas outdated; mas upgrade; brew update; brew upgrade; brew outdated --cask | cut -f 1 | xargs brew reinstall; brew cleanup; brew doctor; softwareupdate -ia; say machine mise à jour;"
 
 # Laravel
 alias sail='bash vendor/bin/sail'
@@ -35,6 +35,13 @@ alias amend="git add .; git commit --amend"
 alias status="git status -sb"
 alias reset="git reset --hard"
 alias clearAllBranchesExceptDevelop="git branch | grep -v \"develop\" | xargs git branch -D;"
+nah () {
+    git reset --hard
+    git clean -df
+    if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then
+        git rebase --abort
+    fi
+}
 
 # Docker
 dockerStopAllContainers() { docker stop $(docker ps -a -q); }
@@ -45,10 +52,23 @@ dockerRemoveAllNetworks() { docker network rm $(docker network ls -q); }
 dockerClearEverything() { dockerStopAllContainers(); dockerRemoveAllContainers(); dockerRemoveAllImages(); dockerRemoveAllVolumes(); dockerRemoveAllNetworks(); docker ps -a; docker images -a; docker volume ls; docker network ls; }
 
 # DNS
-alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache mis à la poubelle'
+alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
 
 # Navigation
 alias home="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
 
+# Weytop
+alias wt-dev-ssh-tunnel="ssh -R 8080:127.0.0.1:443 -L 9200:localhost:9200 -p 912 alorent@dev-alorent.airtop.io"
+alias dep="vendor/bin/dep"
+
+# Sqool
+sqoolListPods() { kubectl get pods }
+sqoolRestartAllPods() { kubectl delete pods -l app.kubernetes.io/name=weytop -n weytop }
+sqoolShellLaravel() { kubectl exec -it $(kubectl get pods -n weytop -l app=laravel -o jsonpath='{.items[*].metadata.name}') --namespace=weytop -- /bin/sh; }
+sqoolShellPostgres() { kubectl exec -it $(kubectl get pods -n weytop -l spilo-role=master -o jsonpath='{.items[*].metadata.name}') --namespace=weytop -- /bin/sh; }
+sqoolLogsLaravel() { kubectl logs $(kubectl get pods -n weytop -l app=laravel -o jsonpath='{.items[*].metadata.name}') -f }
+sqoolLogsScheduler() { kubectl logs $(kubectl get pods -n weytop -l app=scheduler -o jsonpath='{.items[*].metadata.name}') -f }
+sqoolLogsHorizon() { kubectl logs $(kubectl get pods -n weytop -l app=horizon -o jsonpath='{.items[*].metadata.name}') -f }
+sqoolLogsNginx() { kubectl logs $(kubectl get pods -n weytop -l app=nginx -o jsonpath='{.items[*].metadata.name}') -f }
