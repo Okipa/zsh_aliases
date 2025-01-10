@@ -20,6 +20,7 @@ alias update="omz update; mas outdated; mas upgrade; brew update; brew upgrade; 
 
 # Laravel
 alias sail='bash vendor/bin/sail'
+alias dapp='vendor/bin/dapp'
 
 # Git
 alias remote="git remote"
@@ -60,15 +61,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 
 # Weytop
-alias wt-dev-ssh-tunnel="ssh -R 8080:127.0.0.1:443 -L 9200:localhost:9200 -p 912 alorent@dev-alorent.airtop.io"
+alias wt-dev-ssh-tunnel="ssh -R 8080:127.0.0.1:443 -L 0.0.0.0:9200:localhost:9200 -p 912 alorent@dev-alorent.airtop.io"
 alias dep="vendor/bin/dep"
 
-# Sqool
-sqoolListPods() { kubectl get pods }
-sqoolRestartAllPods() { kubectl delete pods -l app.kubernetes.io/name=weytop -n weytop }
-sqoolShellLaravel() { kubectl exec -it $(kubectl get pods -n weytop -l app=laravel -o jsonpath='{.items[*].metadata.name}') --namespace=weytop -- /bin/sh; }
-sqoolShellPostgres() { kubectl exec -it $(kubectl get pods -n weytop -l spilo-role=master -o jsonpath='{.items[*].metadata.name}') --namespace=weytop -- /bin/sh; }
-sqoolLogsLaravel() { kubectl logs $(kubectl get pods -n weytop -l app=laravel -o jsonpath='{.items[*].metadata.name}') -f }
-sqoolLogsScheduler() { kubectl logs $(kubectl get pods -n weytop -l app=scheduler -o jsonpath='{.items[*].metadata.name}') -f }
-sqoolLogsHorizon() { kubectl logs $(kubectl get pods -n weytop -l app=horizon -o jsonpath='{.items[*].metadata.name}') -f }
-sqoolLogsNginx() { kubectl logs $(kubectl get pods -n weytop -l app=nginx -o jsonpath='{.items[*].metadata.name}') -f }
